@@ -63,3 +63,12 @@ if [ "${PHP_SWOOLE}" != "false" ]; then
     && ( cd swoole && phpize && ./configure && make $mc && make install ) \
     && docker-php-ext-enable swoole
 fi
+
+
+# SeasLog
+if [ "${PHP_SEASLOG}" != "false" ]; then
+    mkdir seaslog \
+    && tar -xf SeasLog-${PHP_SEASLOG}.tgz -C seaslog --strip-components=1 \
+    && ( cd seaslog && phpize && ./configure && make $mc && make install ) \
+    && docker-php-ext-enable seaslog
+fi
