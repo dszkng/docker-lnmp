@@ -21,7 +21,6 @@ services:
         PHP_VERSION: ${PHP72_VERSION}
         PHP_XDEBUG: ${PHP72_XDEBUG}
         PHP_SWOOLE: ${PHP72_SWOOLE}
-        PHP_SEASLOG: ${PHP72_SEASLOG}
         PHP_REDIS: ${PHP72_REDIS}
         REPLACE_SOURCE_LIST: ${REPLACE_SOURCE_LIST}
     volumes:
@@ -34,20 +33,19 @@ services:
     networks:
       - default
 
-  php54:
+  php56:
     build:
       context: .
       args:
-        PHP_VERSION: ${PHP54_VERSION}
-        PHP_XDEBUG: ${PHP54_XDEBUG}
-        PHP_SWOOLE: ${PHP54_SWOOLE}
-        PHP_SEASLOG: ${PHP54_SEASLOG}
-        PHP_REDIS: ${PHP54_REDIS}
+        PHP_VERSION: ${PHP56_VERSION}
+        PHP_XDEBUG: ${PHP56_XDEBUG}
+        PHP_SWOOLE: ${PHP56_SWOOLE}
+        PHP_REDIS: ${PHP56_REDIS}
         REPLACE_SOURCE_LIST: ${REPLACE_SOURCE_LIST}
     volumes:
       - ${SOURCE_DIR}:/var/www/html/:rw
-      - ${PHP54_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
-      - ${PHP54_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ${PHP56_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro
+      - ${PHP56_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
     restart: always
     cap_add:
       - SYS_PTRACE
